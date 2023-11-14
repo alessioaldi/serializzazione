@@ -15,14 +15,15 @@ public class App {
 
             BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
             DataOutputStream out = new DataOutputStream(s.getOutputStream());
-
-            int r = 0;
             
             System.out.println("Inserici il tuo nickname:");
             out.writeBytes(scan.nextLine() + "\n");
 
+            //starto il tubo di ascolto continuo
+            Ascolto a = new Ascolto(s);
+            a.start();
             do {
-                
+                //scrivo 
                 out.writeBytes(scan.nextLine()+ "\n");
 
             } while (true);

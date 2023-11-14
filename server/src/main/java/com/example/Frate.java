@@ -12,7 +12,7 @@ public class Frate extends Thread {
     DataOutputStream out;
     String n;
 
-    public Frate(Socket s, ArrayList<Frate> utenti, String n) {
+    public Frate(Socket s, ArrayList<Frate> utenti) {
         this.s = s;
         this.users = utenti;
         try {
@@ -39,6 +39,7 @@ public class Frate extends Thread {
             String username = in.readLine();
             System.out.println("NUOVO UTENTE - " + username);
             //metti nome al thread
+            Thread.currentThread().setName(username);
 
             String messaggio = new String();
 
