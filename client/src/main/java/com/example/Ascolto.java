@@ -11,7 +11,7 @@ public class Ascolto extends Thread {
     public Ascolto(Socket s) {
         this.s = s;
     }
-
+//sto sempre in ascolto
     public void run() {
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
