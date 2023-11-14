@@ -1,5 +1,6 @@
 # chatRoom
 ## Protocollo Server
+---
 Il protocollo del server inizia chiedendo l'indirizzo IP .
 successivamente chiede lo username.
 **Non possono esserci più client con lo stesso nome**
