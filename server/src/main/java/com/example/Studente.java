@@ -17,4 +17,7 @@ public class Studente {
         this.cognome = cognome;
         this.classe = classe;
     }
+
+    public Studente(){};
+
 }

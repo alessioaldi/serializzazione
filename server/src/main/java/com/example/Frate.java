@@ -7,6 +7,13 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 public class Frate extends Thread {
     Socket s;
@@ -37,11 +44,21 @@ public class Frate extends Thread {
 
         System.out.println("in client si è connesso");
 
+        XmlMapper xmlMapper = new XmlMapper();
+        String stringa = new String();
+        
+        //serializzo
+        try{
+            stringa = xmlMapper.writeValueAsString(n);
+        } catch(Exception e){
+            System.out.println("errore");
+        }
+
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
             DataOutputStream out = new DataOutputStream(s.getOutputStream());
 
-            out.writeBytes(n+"\n");
+            out.writeBytes(stringa+"\n");
             
 
         } catch (Exception e) {
