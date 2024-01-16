@@ -1,6 +1,11 @@
 package com.example;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -13,17 +18,20 @@ public class App {
 
     public static void main(String[] args) {
 
-        ArrayList<Frate> listautenti = new ArrayList<Frate>();
         ServerSocket server = null;
         try {
 
             server = new ServerSocket(3000);
+            ArrayList <Studente> studenti= new ArrayList<Studente>();
+            Studente s1= new Studente("culo", "cane", "Siu5");
+            Studente s2= new Studente("spugni", "meucci", "sxbg");
+            studenti.add(s2);
+            studenti.add(s1);
 
             while (true) {
                 Socket s = server.accept();
                 System.out.println("Server avviato");
-                Frate f = new Frate(s, listautenti);
-                listautenti.add(f);
+                Frate f = new Frate(s, studenti.get(0).toString()+studenti.get(1).toString()+"\n");
                 f.start();
             }
 
