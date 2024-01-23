@@ -27,11 +27,12 @@ public class App {
             Studente s2= new Studente("spugni", "meucci", "sxbg");
             studenti.add(s2);
             studenti.add(s1);
+            Classe c= new Classe(studenti);
 
             while (true) {
                 Socket s = server.accept();
                 System.out.println("Server avviato");
-                Frate f = new Frate(s, studenti.get(0).toString()+studenti.get(1).toString()+"\n");
+                Frate f = new Frate(s, c);
                 f.start();
             }
 

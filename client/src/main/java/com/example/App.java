@@ -21,6 +21,7 @@ public class App {
             
             String messaggio = in.readLine();
             
+            System.out.println("\n\n\n\n");
             System.out.println(messaggio);
 
             s.close();

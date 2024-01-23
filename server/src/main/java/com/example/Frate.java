@@ -19,11 +19,11 @@ public class Frate extends Thread {
     Socket s;
     ArrayList<Frate> users;
     DataOutputStream out;
-    String n;
+    Classe classe;
 
-    public Frate(Socket s, String studenti) {
+    public Frate(Socket s, Classe c) {
         this.s = s;
-        n=studenti;
+        classe=c;
         try {
             this.out = new DataOutputStream(s.getOutputStream());
         } catch (Exception e) {
@@ -49,7 +49,7 @@ public class Frate extends Thread {
         
         //serializzo
         try{
-            stringa = xmlMapper.writeValueAsString(n);
+            stringa = xmlMapper.writeValueAsString(classe);
         } catch(Exception e){
             System.out.println("errore");
         }
